@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>健身管理平台</title>
+  <% if (process.env.NODE_ENV === 'production') { %>
+  <!-- 生产环境 -->
+  <script>document.write('<script src="./config/index.js?t=' + new Date().getTime() + '"><\/script>')</script>
+  <% }else { %>
+  <!-- 开发环境 -->
+  <link rel="shortcut icon" type="image/x-icon" href="./static/img/favicon.ico">
+  <script src="./static/config/index.js"></script>
+  <script src="./static/plugins/mock-1.0.0-beta3/mock-min.js"></script>
+  <% } %>
+  <script>
+    fnResize()
+    window.onresize = function () {
+      fnResize()
+    }
+
+    function fnResize () {
+      let deviceWidth = document.documentElement.clientWidth || window.innerWidth
+      console.log('device width: ' + deviceWidth)
+      // if (deviceWidth >= 750) {
+      //   deviceWidth = 750
+      // }
+      // if (deviceWidth <= 320) {
+      //   deviceWidth = 320
+      // }
+      document.documentElement.style.fontSize = (deviceWidth / 120) + 'px'
+      console.log('font size: ' + document.documentElement.style.fontSize)
+    }
+  </script>
+</head>
+<body>
+<div id="app"></div>
+</body>
+</html>
