@@ -3,7 +3,6 @@ const path = require('path')
 const utils = require('./utils')
 const config = require('../config')
 const vueLoaderConfig = require('./vue-loader.conf')
-const { VueLoaderPlugin } = require("vue-loader");
 function resolve (dir) {
   return path.join(__dirname, '..', dir)
 }
@@ -98,8 +97,5 @@ module.exports = {
   // 引入外部库, 无需webpack打包处理
   externals: {
     mockjs: 'Mock'
-  },
-  plugins: [
-    new VueLoaderPlugin()
-  ]
+  }
 }
